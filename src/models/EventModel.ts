@@ -70,4 +70,3 @@ export const eventSchema: Schema = new Schema({
     },
 });
 
-// export const eventModel: Model<IEvent> = model<IEvent>('Event', eventSchema);
