@@ -57,6 +57,19 @@ export class EventService {
                 })
         })
     }
+
+
+    public getEventByDate(data: string) {
+        return new Promise( async (resolve, reject) => {
+            await this.eventModel.find(data)
+                .then((resBD) =>{
+                    resolve(resBD);
+                })
+                .catch(err => {
+                    reject(err);
+                })
+        })
+    }
     public getEventByAmbassador(ambassador: string) {
         return new Promise( async (resolve, reject) => {
             await this.eventModel.find(ambassador)

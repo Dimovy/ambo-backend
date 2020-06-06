@@ -20,7 +20,7 @@
     "cross-env": "^7.0.0"
   },
   "scripts": {
-    "start-dev": "nodemon --config \"./util/nodemon.json\"/"
+    "start": "nodemon --config \"./util/nodemon.json\"/"
   },
   "repository": {
     "type": "git",

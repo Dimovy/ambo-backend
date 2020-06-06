@@ -34,6 +34,17 @@ export class EventController {
             })
     }
 
+    @Post('date')
+    private async getEventsByDate(req: Request, res: Response) {
+        await this.eventService.getEventByDate(req.body)
+            .then((Events) => {
+                res.status(200).send(Events);
+            })
+            .catch(err => {
+                res.status(400).send(err);
+            })
+    }
+
     @Post('ambassador')
     private async getEventsByAmbassador(req: Request, res: Response) {
         await this.eventService.getEventByAmbassador(req.body)
