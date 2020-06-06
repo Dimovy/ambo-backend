@@ -35,11 +35,22 @@ export class EventController {
             })
     }
 
-    @Post('next')
-    private async getNextEvent(req: Request, res: Response) {
-        await this.eventService.getNextEvent(req.body)
-            .then((nextEvent) => {
-                res.status(200).send(nextEvent);
+    @Post('ambassador')
+    private async getEventsByAmbassador(req: Request, res: Response) {
+        await this.eventService.getEventByAmbassador(req.body)
+            .then((Events) => {
+                res.status(200).send(Events);
+            })
+            .catch(err => {
+                res.status(400).send(err);
+            })
+    }
+    
+    @Post('university')
+    private async getEventsByUniversity(req: Request, res: Response) {
+        await this.eventService.getEventByUniversity(req.body)
+            .then((Events) => {
+                res.status(200).send(Events);
             })
             .catch(err => {
                 res.status(400).send(err);

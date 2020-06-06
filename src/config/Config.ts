@@ -2,7 +2,7 @@ export class Config {
     urlDB: string;
 
     constructor() {
-        this.urlDB = 'mongodb+srv://shop:ghjtyubnm@shopsystem-taxgx.mongodb.net/IT-life?retryWrites=true&w=majority';
+        this.urlDB = 'mongodb+srv://Dmitry:d49TWkwi1dRTwPsG@ambo-cluster-ryp2d.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority';
     }
 
 

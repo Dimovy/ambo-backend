@@ -1,95 +1,71 @@
 import {Document, model, Model, Schema} from 'mongoose';
-import {ITarget} from "./TargetModel";
 
-export interface ChangeValue extends Document {
-    healthValue: number,
-    timeValue: number,
-    moneyValue: number,
-    skillValue: number
+export interface Estimation extends Document {
+    organisation: number,
+    infoSupport: number,
+    materialSupport: number,
+    callback: number
 }
 
-export interface IEvent extends Document {
-    textEvent: string,
-    up:ChangeValue,
-    down:ChangeValue,
-    allowingSkill: number,
-    textUp: string,
-    textDown: string,
-    target: ITarget['_id'],
+export interface Event extends Document {
+    nameEvent: string,
+    date: string,
+    participants: number,
+    description: string,
+    ambassador: string,
+    university: string,
+    estimation: Estimation,
 }
 
 export const eventSchema: Schema = new Schema({
-    textEvent: {
+    nameEvent: {
         type: String,
         required: true,
     },
-    allowingSkill: {
+    participants: {
         type: Number,
         required: true,
     },
-    textUp: {
+    description: {
         type: String,
         required: true,
     },
-    textDown: {
+    date: {
         type: String,
         required: true,
     },
-    target: {
-        type: Schema.Types.ObjectId,
-        ref: 'Target'
+    ambassador: {
+        type: String,
+        required: true,
     },
-    up:{
-        healthValue: {
-            type: Number,
-            required: true,
-            min: -10,
-            max: 10,
-        },
-        timeValue: {
-            type: Number,
-            required: true,
-            min: -10,
-            max: 10,
-        },
-        moneyValue: {
-            type: Number,
-            required: true,
-            min: -10,
-            max: 10,
-        },
-        skillValue: {
-            type: Number,
-            required: true,
-            min: -10,
-            max: 10,
-        },
+    university: {
+        type: String,
+        required: true,
     },
-
-    down:{
-        healthValue: {
+    estimation:{
+        organisation: {
             type: Number,
             required: true,
-            min: -10,
-            max: 10,
+            min: 0,
+            max: 5,
         },
-        timeValue: {
+        infoSupport: {
             type: Number,
             required: true,
-            min: -10,
-            max: 10,
+            min: 0,
+            max: 5,
         },
-        moneyValue: {
+        materialSupport: {
             type: Number,
             required: true,
-            min: -10,
-            max: 10,
+            min: 0,
+            max: 5,
         },
-        skillValue: {
+        callback: {
             type: Number,
             required: true,
-            min: -10,
-            max: 10,
+            min: 0,
+            max: 5,
         },
     },
 });

@@ -1,5 +1,5 @@
 {
-  "name": "it-life",
+  "name": "amboTODO-back",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -24,12 +24,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nik-prostok/it-life.git"
+    "url": "git+https://github.com/Dimovy/ambo-backend.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nik-prostok/it-life/issues"
+    "url": "https://github.com/Dimovy/ambo-backend/issues"
   },
-  "homepage": "https://github.com/nik-prostok/it-life#readme"
+  "homepage": "https://github.com/Dimovy/ambo-backend#readme"
 }
