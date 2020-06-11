@@ -33,9 +33,9 @@ export class App extends Server {
         super.addControllers([eventController]/*, optional router here*/);
     }
 
-    public start(port: number): void {
-        this.app.listen(port, () => {
-            Logger.Imp('Server listening on port: ' + port);
+    public start(): void {
+        this.app.listen(process.env.PORT || 3000, () => {
+            Logger.Imp('Server listening on port: ' + process.env.PORT || 3000);
         })
     }
 }
