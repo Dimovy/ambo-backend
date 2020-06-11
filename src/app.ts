@@ -2,15 +2,21 @@ import * as bodyParser from 'body-parser';
 import { Server } from '@overnightjs/core';
 import { Logger } from '@overnightjs/logger';
 import { MongooseHelper } from '../util/MongooseHelper';
-import {Config} from './config/Config';
-import {EventController} from './controllers/EventController';
+import { Config } from './config/Config';
+import { EventController } from './controllers/EventController';
+
+const fileUpload = require('express-fileupload');
 
 export class App extends Server {
+    
 
     constructor() {
         super(process.env.NODE_ENV === 'development'); // setting showLogs to true
+        this.app.use(fileUpload({
+            createParentPath: true
+        }));
         this.app.use(bodyParser.json());
-        this.app.use(bodyParser.urlencoded({extended: true}));
+        this.app.use(bodyParser.urlencoded({ extended: true }));
         this.setupControllers();
     }
 
