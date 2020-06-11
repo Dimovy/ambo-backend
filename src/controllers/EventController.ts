@@ -33,12 +33,35 @@ export class EventController {
                 res.status(400).send(err);
             })
     }
+    
 
     @Post('date')
     private async getEventsByDate(req: Request, res: Response) {
         await this.eventService.getEventByDate(req.body)
-            .then((Events) => {
-                res.status(200).send(Events);
+            .then((events) => {
+                res.status(200).send(events);
+            })
+            .catch(err => {
+                res.status(400).send(err);
+            })
+    }
+
+    @Post('delete')
+    private async deleteEventById(req: Request, res: Response) {
+        await this.eventService.deleteEventById(req.body)
+            .then((event) => {
+                res.status(200).send(event);
+            })
+            .catch(err => {
+                res.status(400).send(err);
+            })
+    }
+
+    @Post('update')
+    private async updateEvent(req: Request, res: Response) {
+        await this.eventService.updateEvent(req.body)
+            .then((event) => {
+                res.status(200).send(event);
             })
             .catch(err => {
                 res.status(400).send(err);
@@ -48,22 +71,36 @@ export class EventController {
     @Post('ambassador')
     private async getEventsByAmbassador(req: Request, res: Response) {
         await this.eventService.getEventByAmbassador(req.body)
-            .then((Events) => {
-                res.status(200).send(Events);
+            .then((events) => {
+                res.status(200).send(events);
             })
             .catch(err => {
                 res.status(400).send(err);
             })
     }
-    
+
+    @Post('upload-avatar')
+    private async uploadAvatar(req: Request, res: Response) {
+        let avatar = req.file;
+        avatar.mv('./uploads/' + avatar.name);
+        await this.eventService.getEventByAmbassador(req.body)
+            .then((roadToAvatar) => {
+                res.status(200).send(roadToAvatar);
+            })
+            .catch(err => {
+                res.status(400).send(err);
+            })
+    }
+
     @Post('university')
     private async getEventsByUniversity(req: Request, res: Response) {
         await this.eventService.getEventByUniversity(req.body)
-            .then((Events) => {
-                res.status(200).send(Events);
+            .then((events) => {
+                res.status(200).send(events);
             })
             .catch(err => {
                 res.status(400).send(err);
             })
     }
 }
+

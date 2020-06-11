@@ -34,6 +34,18 @@ export class EventService {
         })
     }
 
+    public deleteEventById(id: string) {
+        return new Promise( async (resolve, reject) => {
+            await this.eventModel.remove(id)
+                .then((resBD) =>{
+                    resolve(resBD);
+                })
+                .catch(err => {
+                    reject(err);
+                })
+        })
+    }
+
     public updateEvent(newEvent: Event) {
         return new Promise(async (resolve, reject) => {
            await this.eventModel.findByIdAndUpdate(newEvent.id, newEvent)
@@ -58,10 +70,11 @@ export class EventService {
         })
     }
 
-
-    public getEventByDate(data: string) {
+    public getEventByDate(date: string) {
+        let month = "/\\d{2}\\."+JSON.stringify(date).slice(9, 16)+"/"
+        month = month.substring(0, 10) + "\\" + month.substring(10);
         return new Promise( async (resolve, reject) => {
-            await this.eventModel.find(data)
+            await this.eventModel.find( { "date": eval(month) })
                 .then((resBD) =>{
                     resolve(resBD);
                 })
