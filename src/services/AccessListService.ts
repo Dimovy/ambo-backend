@@ -22,18 +22,6 @@ export class AccessListService {
         })
     }
 
-    public createNewAvatar(Avatar: Access) {
-        return new Promise(async(resolve, reject) => {
-            await this.accessModel.create(newAccess)
-                .then((resBD) =>{
-                    resolve(resBD);
-                })
-                .catch(err => {
-                    reject(err);
-                })
-        })
-    }
-
     public createAccess(newAccess: Access) {
         return new Promise(async(resolve, reject) => {
             await this.accessModel.create(newAccess)
