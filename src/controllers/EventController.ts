@@ -79,7 +79,7 @@ export class EventController {
             })
     }
 
-    @Post('upload-avatar')
+/*     @Post('upload-avatar')
     private async uploadAvatar(req: Request, res: Response) {
         let avatar = req.file;
         avatar.mv('./uploads/' + avatar.name);
@@ -90,7 +90,7 @@ export class EventController {
             .catch(err => {
                 res.status(400).send(err);
             })
-    }
+    } */
 
     @Post('university')
     private async getEventsByUniversity(req: Request, res: Response) {
