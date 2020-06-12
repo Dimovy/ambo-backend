@@ -6,6 +6,7 @@ import { Config } from './config/Config';
 import { EventController } from './controllers/EventController';
 
 const fileUpload = require('express-fileupload');
+const PORT = process.env.PORT || 3000
 
 export class App extends Server {
     
@@ -32,10 +33,10 @@ export class App extends Server {
         const eventController = new EventController();
         super.addControllers([eventController]/*, optional router here*/);
     }
-
+  
     public start(): void {
-        this.app.listen(process.env.PORT || 3000, () => {
-            Logger.Imp('Server listening on port: ' + process.env.PORT || 3000);
+        this.app.listen(PORT, () => {
+            Logger.Imp('Server listening on port: ' + PORT);
         })
     }
 }
