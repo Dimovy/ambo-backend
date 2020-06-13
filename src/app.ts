@@ -6,6 +6,9 @@ import { Config } from './config/Config';
 import { EventController } from './controllers/EventController';
 
 const fileUpload = require('express-fileupload');
+var express = require('express')
+var cors = require('cors')
+var app = express()
 const PORT = process.env.PORT || 3000
 
 export class App extends Server {
@@ -16,6 +19,7 @@ export class App extends Server {
         this.app.use(fileUpload({
             createParentPath: true
         }));
+        this.app.use(cors());
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: true }));
         this.setupControllers();
