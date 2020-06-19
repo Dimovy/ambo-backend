@@ -58,18 +58,18 @@ export const eventSchema: Schema = new Schema({
         type: String,
         required: false,
     },
-    participantsCallback: {
+    participantsCallback: [{
         type: String,
         required: false,
-    },
-    uploadsLinks: {
+    }],
+    uploadsLinks: [{
         type: String,
         required: false,
-    },
-    publicationLinks: {
+    }],
+    publicationLinks: [{
         type: String,
         required: true,
-    },
+    }],
     notes: {
         type: String,
         required: false,
