@@ -3,6 +3,9 @@ import { Controller, Get, Put, Post, Delete } from '@overnightjs/core';
 import { accessSchema } from '../models/AccessModel';
 import { AccessListService } from '../services/AccessListService';
 
+const path = require('path');
+const multer = require('multer');
+
 @Controller('access')
 export class AccessController {
 
@@ -45,11 +48,34 @@ export class AccessController {
             })
     }
 
-    @Post('university')
-    private async getEventsByUniversity(req: Request, res: Response) {
-        await this.eventService.getEventByUniversity(req.body)
-            .then((Events) => {
-                res.status(200).send(Events);
+    @Post('avatar')
+    private async uploadAvatar(req: Request, res: Response) {
+
+        await this.accessListService.deleteAccessByVkID(req.body)
+            .then((access) => {
+                res.status(200).send(access);
+            })
+            .catch(err => {
+                res.status(400).send(err);
+            })
+    }
+
+    @Post('update')
+    private async updateAccess(req: Request, res: Response) {
+        await this.accessListService.updateAccess(req.body)
+            .then((access) => {
+                res.status(200).send(access);
+            })
+            .catch(err => {
+                res.status(400).send(err);
+            })
+    }
+
+    @Post('find')
+    private async getAccessByVkID(req: Request, res: Response) {
+        await this.accessListService.getAccessByVkID(req.body)
+            .then((access) => {
+                res.status(200).send(access);
             })
             .catch(err => {
                 res.status(400).send(err);

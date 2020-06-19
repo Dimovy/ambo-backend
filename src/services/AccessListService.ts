@@ -1,6 +1,33 @@
-import {Access} from '../models/AccessModel';
+import { Access } from '../models/AccessModel';
 import * as mongoose from "mongoose";
-import {Schema} from "mongoose";
+import { Schema } from "mongoose";
+import { Request } from 'express';
+
+/* const path = require('path');
+const multer = require('multer');
+
+
+const storage = multer.diskStorage({
+    destination: (req: Request, file: any, cb: any) => {
+        cb(null, '../uploads');
+    },
+    filename: (req: Request, file: any, cb: any) => {
+        cb(null, "Avatar" + Date.now() + path.extname(file.originalname))
+    }
+})
+
+const upload = multer({
+    storage,
+    limits: { fieldSize: 2 * 1024 * 1024 },
+    fileFilter: (req: Request, file: any, cb: any) => {
+        const ext = path.extname(file.originalname);
+        if (ext !== '.jpg' && ext !== '.jpeg' && ext !== '.png') {
+            const err = new Error('Wrong extention!')
+            return cb(err)
+        }
+        cb(null, true)
+    }
+}).single('file') */
 
 export class AccessListService {
 
@@ -13,7 +40,7 @@ export class AccessListService {
     public getAllAccess() {
         return new Promise(async (resolve, reject) => {
             await this.accessModel.find()
-                .then((resBD) =>{
+                .then((resBD) => {
                     resolve(resBD);
                 })
                 .catch(err => {
@@ -23,9 +50,9 @@ export class AccessListService {
     }
 
     public createAccess(newAccess: Access) {
-        return new Promise(async(resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             await this.accessModel.create(newAccess)
-                .then((resBD) =>{
+                .then((resBD) => {
                     resolve(resBD);
                 })
                 .catch(err => {
@@ -35,9 +62,9 @@ export class AccessListService {
     }
 
     public deleteAccessByVkID(vkID: string) {
-        return new Promise( async (resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             await this.accessModel.remove(vkID)
-                .then((resBD) =>{
+                .then((resBD) => {
                     resolve(resBD);
                 })
                 .catch(err => {
@@ -48,20 +75,20 @@ export class AccessListService {
 
     public updateAccess(newAccess: Access) {
         return new Promise(async (resolve, reject) => {
-           await this.accessModel.findByIdAndUpdate(newAccess.id, newAccess)
+            await this.accessModel.findByIdAndUpdate(newAccess.id, newAccess)
                 .then(resBD => {
                     resolve(resBD);
                 })
-               .catch(err => {
-                   reject(err);
-               })
+                .catch(err => {
+                    reject(err);
+                })
         })
     }
 
     public getAccessByVkID(vkID: string) {
-        return new Promise( async (resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             await this.accessModel.findById(vkID)
-                .then((resBD) =>{
+                .then((resBD) => {
                     resolve(resBD);
                 })
                 .catch(err => {
