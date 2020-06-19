@@ -1,4 +1,4 @@
-import {Event, Estimation} from '../models/EventModel';
+import {Event} from '../models/EventModel';
 import * as mongoose from "mongoose";
 import {Schema} from "mongoose";
 
