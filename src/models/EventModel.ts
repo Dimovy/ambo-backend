@@ -6,6 +6,7 @@ export interface Event extends Document {
     nameEvent: string,
     date: string,
     eventType: string,
+    eventPlace: string,
     description: string,
     companyRole: string,
     participants: number,
@@ -23,6 +24,10 @@ export const eventSchema: Schema = new Schema({
         required: true,
     },
     eventForm: {
+        type: String,
+        required: true,
+    },
+    eventPlace: {
         type: String,
         required: true,
     },
