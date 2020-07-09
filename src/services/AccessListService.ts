@@ -87,7 +87,7 @@ export class AccessListService {
 
     public getAccessByVkID(vkID: string) {
         return new Promise(async (resolve, reject) => {
-            await this.accessModel.findById(vkID)
+            await this.accessModel.find(vkID)
                 .then((resBD) => {
                     resolve(resBD);
                 })
