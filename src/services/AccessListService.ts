@@ -75,7 +75,7 @@ export class AccessListService {
 
     public updateAccess(newAccess: Access) {
         return new Promise(async (resolve, reject) => {
-            await this.accessModel.findByIdAndUpdate(newAccess._id, newAccess)
+            await this.accessModel.findByIdAndUpdate(newAccess._id,{$set:newAccess})
                 .then(resBD => {
                     resolve(resBD);
                 })
