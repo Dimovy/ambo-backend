@@ -1,7 +1,7 @@
 import {Document, model, Model, Schema} from 'mongoose';
 
 export interface Access extends Document {
-    vkID: number,
+    vkID: string,
     role: string,
     avatar: string,
     achievements: string,
@@ -10,7 +10,7 @@ export interface Access extends Document {
 
 export const accessSchema: Schema = new Schema({
     vkID: {
-        type: Number,
+        type: String,
         required: true,
     },
     role: {
