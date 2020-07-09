@@ -10,11 +10,11 @@ export interface Access extends Document {
 
 export const accessSchema: Schema = new Schema({
     vkID: {
-        type: String,
+        type: Number,
         required: true,
     },
     role: {
-        type: Number,
+        type: String,
         required: true,
     },
     achievements: {
