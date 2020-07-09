@@ -4,6 +4,7 @@ import { Logger } from '@overnightjs/logger';
 import { MongooseHelper } from '../util/MongooseHelper';
 import { Config } from './config/Config';
 import { EventController } from './controllers/EventController';
+import { AccessController } from './controllers/AccessListController';
 
 const fileUpload = require('express-fileupload');
 var express = require('express')
@@ -35,7 +36,8 @@ export class App extends Server {
                 console.log(err);
             })
         const eventController = new EventController();
-        super.addControllers([eventController]/*, optional router here*/);
+        const accessController = new AccessController();
+        super.addControllers([eventController,accessController]/*, optional router here*/);
     }
   
     public start(): void {
