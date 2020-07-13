@@ -8,7 +8,19 @@ export interface Access extends Document {
     phoneNumber: string,
     birthday: string,
     fullName: string,
-    university: string
+    latinFullName: string,
+    personalEmail: string,
+    town: string,
+    university: string,
+    universityPostalAddress: string,
+    rectorFullName: string,
+    rectorPostalAddress: string,
+    statusInUniversity: string,
+    facultyFull: string,
+    facultyShortly: string,
+    specialty: string,
+    personalPostalAddress: string,
+    clothingSize: string,
 }
 
 export const accessSchema: Schema = new Schema({
@@ -44,6 +56,55 @@ export const accessSchema: Schema = new Schema({
         type: String,
         required: false,
     },
+    latinFullName:{
+        type: String,
+        required: false,
+    },
+    personalEmail: {
+        type: String,
+        required: false,
+    },
+    town: {
+        type: String,
+        required: false,
+    },
+    universityPostalAddress: {
+        type: String,
+        required: false,
+    },
+    rectorFullName: {
+        type: String,
+        required: false,
+    },
+    rectorPostalAddress: {
+        type: String,
+        required: false,
+    },
+    statusInUniversity: {
+        type: String,
+        required: false,
+    },
+    facultyFull: {
+        type: String,
+        required: false,
+    },
+    facultyShortly: {
+        type: String,
+        required: false,
+    },
+    specialty: {
+        type: String,
+        required: false,
+    },
+    personalPostalAddress: {
+        type: String,
+        required: false,
+    },
+    clothingSize: {
+        type: String,
+        required: false,
+    },
+}
 
 });
 
