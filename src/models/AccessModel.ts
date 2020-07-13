@@ -104,7 +104,6 @@ export const accessSchema: Schema = new Schema({
         type: String,
         required: false,
     },
-}
 
 });
 
