@@ -96,4 +96,15 @@ export class AccessListService {
                 })
         })
     }
+    public getAccessByRole(role: string) {
+        return new Promise(async (resolve, reject) => {
+            await this.accessModel.find(role)
+                .then((resBD) => {
+                    resolve(resBD);
+                })
+                .catch(err => {
+                    reject(err);
+                })
+        })
+    }
 }

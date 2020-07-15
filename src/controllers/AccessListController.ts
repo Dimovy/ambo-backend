@@ -81,5 +81,15 @@ export class AccessController {
                 res.status(400).send(err);
             })
     }
+    @Post('role')
+    private async getAccessByRole(req: Request, res: Response) {
+        await this.accessListService.getAccessByRole(req.body)
+            .then((access) => {
+                res.status(200).send(access);
+            })
+            .catch(err => {
+                res.status(400).send(err);
+            })
+    }
 }
 
