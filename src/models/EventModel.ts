@@ -21,27 +21,27 @@ export interface Event extends Document {
 export const eventSchema: Schema = new Schema({
     participationForm: {
         type: String,
-        required: true,
+        required: false,
     },
     eventForm: {
         type: String,
-        required: true,
+        required: false,
     },
     eventPlace: {
         type: String,
-        required: true,
+        required: false,
     },
     nameEvent: {
         type: String,
-        required: true,
+        required: false,
     },
     eventType: {
         type: String,
-        required: true,
+        required: false,
     },
     participants: {
         type: Number,
-        required: true,
+        required: false,
     },
     description: {
         type: String,
@@ -53,11 +53,11 @@ export const eventSchema: Schema = new Schema({
     },
     ambassador: {
         type: String,
-        required: true,
+        required: false,
     },
     university: {
         type: String,
-        required: true,
+        required: false,
     },
     companyRole: {
         type: String,
@@ -73,7 +73,7 @@ export const eventSchema: Schema = new Schema({
     },
     publicationLinks: {
         type: String,
-        required: true,
+        required: false,
     },
     notes: {
         type: String,
