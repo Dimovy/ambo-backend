@@ -9,7 +9,7 @@ export interface Event extends Document {
     eventPlace: string,
     description: string,
     companyRole: string,
-    participants: number,
+    participants: string,
     participantsCallback: string,
     uploadsLinks: string,
     publicationLinks: string,
@@ -40,7 +40,7 @@ export const eventSchema: Schema = new Schema({
         required: false,
     },
     participants: {
-        type: Number,
+        type: String,
         required: false,
     },
     description: {
