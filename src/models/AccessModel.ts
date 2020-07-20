@@ -11,6 +11,7 @@ export interface Access extends Document {
     latinFullName: string,
     personalEmail: string,
     town: string,
+    universityShortly: string,
     university: string,
     universityPostalAddress: string,
     rectorFullName: string,
@@ -21,6 +22,7 @@ export interface Access extends Document {
     specialty: string,
     personalPostalAddress: string,
     clothingSize: string,
+    ambassadors: string,
 }
 
 export const accessSchema: Schema = new Schema({
@@ -29,6 +31,10 @@ export const accessSchema: Schema = new Schema({
         required: false,
     },
     role: {
+        type: String,
+        required: false,
+    },
+    ambassadors: {
         type: String,
         required: false,
     },
@@ -49,6 +55,10 @@ export const accessSchema: Schema = new Schema({
         required: false,
     },
     university: {
+        type: String,
+        required: false,
+    },
+    universityShortly: {
         type: String,
         required: false,
     },
