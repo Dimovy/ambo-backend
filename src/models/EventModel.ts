@@ -1,6 +1,8 @@
 import {Document, model, Model, Schema} from 'mongoose';
 
 export interface Event extends Document {
+    ambassador: string,
+    university: string,
     participationForm: string, 
     eventForm: string,
     nameEvent: string,
@@ -14,11 +16,17 @@ export interface Event extends Document {
     uploadsLinks: string,
     publicationLinks: string,
     notes: string,
-    ambassador: string,
-    university: string,
 }
 
 export const eventSchema: Schema = new Schema({
+    ambassador: {
+        type: String,
+        required: false,
+    },
+    university: {
+        type: String,
+        required: false,
+    },
     participationForm: {
         type: String,
         required: false,
@@ -48,14 +56,6 @@ export const eventSchema: Schema = new Schema({
         required: false,
     },
     date: {
-        type: String,
-        required: false,
-    },
-    ambassador: {
-        type: String,
-        required: false,
-    },
-    university: {
         type: String,
         required: false,
     },
