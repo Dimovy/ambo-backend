@@ -22,7 +22,7 @@ export interface Access extends Document {
     specialty: string,
     personalPostalAddress: string,
     clothingSize: string,
-    ambassadors: string,
+    mentor: string,
 }
 
 export const accessSchema: Schema = new Schema({
@@ -34,7 +34,7 @@ export const accessSchema: Schema = new Schema({
         type: String,
         required: false,
     },
-    ambassadors: {
+    mentor: {
         type: String,
         required: false,
     },
