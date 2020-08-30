@@ -4,6 +4,7 @@ export interface Access extends Document {
     vkID: string,
     role: string,
     avatar: string,
+    grade: string,
     achievements: string,
     phoneNumber: string,
     birthday: string,
@@ -39,6 +40,10 @@ export const accessSchema: Schema = new Schema({
         required: false,
     },
     achievements: {
+        type: String,
+        required: false,
+    },
+    grade: {
         type: String,
         required: false,
     },
