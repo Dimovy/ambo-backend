@@ -48,7 +48,7 @@ export class EventService {
 
     public updateEvent(newEvent: Event) {
         return new Promise(async (resolve, reject) => {
-           await this.eventModel.findByIdAndUpdate(newEvent._id, newEvent)
+           await this.eventModel.findByIdAndUpdate(newEvent._id, {$set:newEvent})
                 .then(resBD => {
                     resolve(resBD);
                 })
