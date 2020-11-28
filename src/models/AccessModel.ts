@@ -3,6 +3,7 @@ import {Document, model, Model, Schema} from 'mongoose';
 export interface Access extends Document {
     vkID: string,
     role: string,
+    coins: string,
     avatar: string,
     grade: string,
     achievements: string,
@@ -32,6 +33,10 @@ export const accessSchema: Schema = new Schema({
         required: false,
     },
     role: {
+        type: String,
+        required: false,
+    },
+    coins: {
         type: String,
         required: false,
     },
