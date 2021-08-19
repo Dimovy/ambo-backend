@@ -49,7 +49,7 @@ export class AccessListService {
 
     public updateAccess(newAccess: Access) {
         return new Promise(async (resolve, reject) => {
-            await this.accessModel.findByIdAndUpdate(newAccess._id,{$set:newAccess})
+            await this.accessModel.findByIdAndUpdate(newAccess._id, { $set: newAccess })
                 .then(resBD => {
                     resolve(resBD);
                 })
@@ -71,10 +71,14 @@ export class AccessListService {
         })
     }
     public getAccessByRole(role: string) {
+        let filtredResBd = []
         return new Promise(async (resolve, reject) => {
             await this.accessModel.find(role)
                 .then((resBD) => {
-                    resolve(resBD);
+                   /*  if (role === 'ambassador' || role === 'mentor') {
+                        resBD.filter((e)=>{e.hasOwnProperty('generation')})
+                    } */
+                    resolve(resBD)
                 })
                 .catch(err => {
                     reject(err);

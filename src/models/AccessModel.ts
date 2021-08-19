@@ -1,8 +1,10 @@
-import {Document, model, Model, Schema} from 'mongoose';
+import { Document, model, Model, Schema } from 'mongoose';
 
 export interface Access extends Document {
     vkID: string,
     role: string,
+    eduKey: [string],
+    generation: string,
     coins: string,
     avatar: string,
     grade: string,
@@ -33,6 +35,14 @@ export const accessSchema: Schema = new Schema({
         required: false,
     },
     role: {
+        type: String,
+        required: false,
+    },
+    eduKey: {
+        type: [String],
+        required: false
+    },
+    generation: {
         type: String,
         required: false,
     },
@@ -76,7 +86,7 @@ export const accessSchema: Schema = new Schema({
         type: String,
         required: false,
     },
-    latinFullName:{
+    latinFullName: {
         type: String,
         required: false,
     },
