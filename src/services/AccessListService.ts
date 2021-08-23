@@ -70,15 +70,22 @@ export class AccessListService {
                 })
         })
     }
-    public getAccessByRole(role: string) {
+    public getAccessByRole(reqRole: any) {
+        const { role } = reqRole
         let filtredResBd = []
         return new Promise(async (resolve, reject) => {
-            await this.accessModel.find(role)
+            await this.accessModel.find(reqRole)
                 .then((resBD) => {
-                   /*  if (role === 'ambassador' || role === 'mentor') {
-                        resBD.filter((e)=>{e.hasOwnProperty('generation')})
-                    } */
-                    resolve(resBD)
+                    if (role === 'ambassador' || role === 'mentor') {
+                        filtredResBd = resBD.filter((elem: any) => {
+                            if (elem.generation && elem['generation'] === '4') {
+                                return elem
+                            }
+                        })
+                    } else {
+                        filtredResBd = resBD
+                    }
+                    resolve(filtredResBd)
                 })
                 .catch(err => {
                     reject(err);
